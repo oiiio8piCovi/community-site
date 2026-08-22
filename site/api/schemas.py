@@ -23,7 +23,7 @@ class MessageItem(BaseModel):
 # ---------- 访问统计返回模型 ----------
 class VisitStatResp(BaseModel):
     total_visit: int
-    today_visit: str
+    today_visit: int
 
 
 # ---------- 搜索请求模型 ----------

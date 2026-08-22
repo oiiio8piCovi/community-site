@@ -20,5 +20,5 @@ def site_visit_count():
     visit_stat["today_visit"] += 1
     return VisitStatResp(
         total_visit=visit_stat["total_visit"],
-        today_visit=str(visit_stat["today_visit"])
+        today_visit=visit_stat["today_visit"]
     )
