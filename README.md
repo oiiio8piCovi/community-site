@@ -1,23 +1,53 @@
-# community-site 社区站
+# AC社区
 
-组内共建的二次元风格社区站。服务器与域名由组长提供，全组共同构建、共同维护。
+**Animation & Computer Science Community**
 
-## 五个职能板块
+组内共建的二次元风格社区站：挂服务、挂资源、挂工具，写文章、做交流，每个人都能留名。
 
-| 板块 | 干什么 | 负责人建议 |
-|------|--------|-----------|
-| 维护 | 服务器、部署、监控、安全 | 组长 |
-| 前端 | 网站壳、页面、UI/交互 | 池棠 + 凉心白日 |
-| 后端 | Python API、动态功能、数据 | 池棠 + 凉心白日 |
-| 插件 | 小工具、第三方集成、资源导航 | 小狄，组长等 |
-| 设计 | 二次元风格、素材、品牌 | 池棠 |
+## 内容板块
+
+首页 / 工具 / 资源 / 文章 / 社区
+
+## 技术栈
+
+| 层 | 选型 |
+|----|------|
+| 前端 | HTML/CSS/JS 静态 |
+| 后端 | Python FastAPI |
+| 数据 | mock_db 起步 → SQLite |
+
+## 仓库结构
+
+```
+community-site/
+├── README.md        # 本文件
+├── docs/            # 章程、架构、协作、路线图
+└── site/            # 网站代码
+    ├── index.html   # 首页
+    ├── assets/      # 主题 CSS/JS
+    ├── services/    # 插件、工具
+    ├── blog/        # 文章、笔记
+    └── api/         # 后端
+```
+
+## 快速开始
+
+```bash
+git clone https://github.com/oiiio8piCovi/community-site.git
+```
+
+**前端**：浏览器直接打开 `site/index.html`
+
+**后端**：
+
+```bash
+cd site/api
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
 
 ## 文档
 
-- [项目草案](docs/PROJECT-PLAN.md) —— 定位、板块、技术栈、路线图
+[章程](docs/PROJECT-PLAN.md) · [架构](docs/ARCHITECTURE.md) · [协作规范](docs/COLLABORATION.md) · [路线图](docs/ROADMAP.md)
 
-## 上手
-
-1. 先读 `docs/PROJECT-PLAN.md`
-2. 各板块负责人维护自己的目录
-3. 改完 git add → commit → push
+先读 README → 章程 → 协作规范
