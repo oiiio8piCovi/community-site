@@ -1,0 +1,285 @@
+
+项目文件树
+site/api/
+├── main.py              # FastAPI入口主程序
+├── schemas.py           # Pydantic数据模型（请求/响应结构体）
+├── mock_db.py           # 模拟数据库（二期后期替换真实数据库）
+├── routers/             # 路由分模块，拆分业务接口
+│   ├── __init__.py
+│   ├── message.py       # 留言板模块接口
+│   ├── visit.py         # 访问计数模块接口
+│   └── search.py        # 站内简易搜索接口
+├── utils.py             # 工具函数
+└── requirements.txt     # Python依赖清单
+
+
+一，# site/api/requirements.txt
+fastapi>=0.112.0          # 主API框架
+uvicorn>=0.24.0           # ASGI运行服务器
+pydantic>=2.0             # 数据校验模型
+python-multipart>=0.0.7   # 表单数据支持
+安装命令： pip install -r requirements.txt
+
+
+二，mock_db.py 模拟内存数据库
+# site/api/mock_db.py
+"""
+内存存储，服务重启全部丢失；仅用于二期草案调试
+三期迭代替换为SQLite/MySQL数据库
+"""
+from datetime import datetime
+from typing import List, Dict
+
+# ---------------------- 留言板数据表模拟 ----------------------
+message_table: List[Dict] = []
+message_id_auto = 1  # 留言自增ID
+
+# ---------------------- 网站访问统计模拟 ----------------------
+visit_stat: Dict = {
+    "total_visit": 0,          # 全站总访问次数
+    "today_visit": 0,          # 今日访问
+    "last_reset_date": str(datetime.now().date())  # 今日重置标记
+}
+
+# ---------------------- 站内文章/资源模拟数据（用于搜索） ----------------------
+article_data: List[Dict] = [
+    {
+        "id": 1,
+        "title": "社区入门指南",
+        "content": "欢迎来到社区站，这里可以交流学习、分享资源",
+        "category": "guide",
+        "create_time": str(datetime.now())
+    }
+]
+
+
+def reset_today_visit():
+    """重置今日访问计数，每日调用一次"""
+    global visit_stat
+    now_date = str(datetime.now().date())
+    if visit_stat["last_reset_date"] != now_date:
+        visit_stat["today_visit"] = 0
+        visit_stat["last_reset_date"] = now_date
+
+
+def get_new_message_id() -> int:
+    """获取留言自增ID"""
+    global message_id_auto
+    new_id = message_id_auto
+    message_id_auto += 1
+    return new_id
+
+
+三，schemas.py 数据模型定义
+# site/api/schemas.py
+"""Pydantic模型，统一接口入参、出参格式，自动参数校验
+前端传错参数会直接返回错误，不用手写大量if判断
+"""
+from pydantic import BaseModel, Field
+from typing import Optional, List
+
+
+# ---------- 留言板相关模型 ----------
+class MessageCreate(BaseModel):
+    """前端提交留言 请求体模型"""
+    nickname: str = Field(min_length=1, max_length=20, description="留言昵称")
+    content: str = Field(min_length=1, max_length=500, description="留言内容")
+
+
+class MessageItem(BaseModel):
+    """返回给前端的单条留言数据模型"""
+    msg_id: int
+    nickname: str
+    content: str
+    create_time: str
+
+
+# ---------- 访问统计返回模型 ----------
+class VisitStatResp(BaseModel):
+    total_visit: int
+    today_visit: str
+
+
+# ---------- 搜索请求模型 ----------
+class SearchQuery(BaseModel):
+    keyword: str = Field(min_length=1, max_length=50, description="搜索关键词")
+
+
+四，utils.py 通用工具函数
+# site/api/utils.py
+"""
+通用工具函数，业务无关的公共逻辑
+"""
+from datetime import datetime
+
+
+def get_now_str() -> str:
+    """获取格式化的当前时间字符串"""
+    return datetime.now().strftime("%Y‑%m‑%d %H:%M:%S")
+
+
+def simple_keyword_filter(text: str, keyword: str) -> bool:
+    """简易文本关键词匹配，小写忽略大小写"""
+    return keyword.lower() in text.lower()
+
+
+五，routers/init.py
+# site/api/routers/__init__.py
+"""路由包初始化，统一导出路由对象，main.py直接导入"""
+from .message import router as message_router
+from .visit import router as visit_router
+from .search import router as search_router
+
+__all__ = ["message_router", "visit_router", "search_router"]
+
+
+六，routers/message.py 留言板接口模块
+# site/api/routers/message.py
+"""
+留言板业务API
+接口列表：
+GET  /api/message/list   获取留言列表
+POST /api/message/add    新增留言
+"""
+from fastapi import APIRouter, HTTPException
+from schemas import MessageCreate, MessageItem
+from mock_db import message_table, get_new_message_id
+from utils import get_now_str
+router = APIRouter(prefix="/api/message", tags=["留言板模块"])
+@router.get("/list", response_model=List[MessageItem])
+def get_message_list(limit: int = 20):
+    """
+    获取留言列表
+    :param limit: 返回最多多少条，默认20条，前端可以控制分页大小
+    """
+    # 倒序，最新留言放最前面
+    sorted_list = sorted(message_table, key=lambda x: x["msg_id"], reverse=True)
+    return sorted_list[:limit]
+@router.post("/add", response_model=MessageItem)
+def add_message(payload: MessageCreate):
+    """提交一条新留言"""
+    new_msg = {
+        "msg_id": get_new_message_id(),
+        "nickname": payload.nickname,
+        "content": payload.content,
+        "create_time": get_now_str()
+    }
+    message_table.append(new_msg)
+    return new_msg
+
+
+七， routers/visit.py 访问计数模块
+# site/api/routers/visit.py
+"""
+网站访问计数接口
+GET /api/visit/count 访问统计，每次调用总访问+1
+"""
+from fastapi import APIRouter
+from schemas import VisitStatResp
+from mock_db import visit_stat, reset_today_visit
+
+router = APIRouter(prefix="/api/visit", tags=["访问统计模块"])
+
+
+@router.get("/count", response_model=VisitStatResp)
+def site_visit_count():
+    """
+    网站访问统计接口
+    前端页面加载时请求此接口，实现访问计数
+    """
+    reset_today_visit()  # 判断是否跨天，重置今日访问
+    visit_stat["total_visit"] += 1
+    visit_stat["today_visit"] += 1
+    return VisitStatResp(
+        total_visit=visit_stat["total_visit"],
+        today_visit=str(visit_stat["today_visit"])
+    )
+
+
+八，routers/search.py 简易站内搜索
+# site/api/routers/search.py
+"""
+简易站内搜索接口
+只针对标题、正文做关键词匹配，草案阶段不做搜索引擎
+"""
+from fastapi import APIRouter, Query
+from mock_db import article_data
+from utils import simple_keyword_filter
+
+router = APIRouter(prefix="/api/search", tags=["站内搜索模块"])
+
+
+@router.get("/query")
+def search_api(keyword: str = Query(..., min_length=1)):
+    """
+    简易搜索接口
+    根据关键词匹配文章标题、内容
+    """
+    result = []
+    for item in article_data:
+        title_match = simple_keyword_filter(item["title"], keyword)
+        content_match = simple_keyword_filter(item["content"], keyword)
+        if title_match or content_match:
+            result.append(item)
+    return {
+        "keyword": keyword,
+        "count": len(result),
+        "data": result
+    }
+
+
+九，main.py FastAPI主入口文件
+# site/api/main.py
+"""	
+	
+
+后端服务主入口
+社区站二期后端草案，FastAPI总调度
+挂载所有业务路由、配置跨域、全局异常
+"""
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi import HTTPException
+from routers import message_router, visit_router, search_router
+import uvicorn
+# 创建FastAPI实例
+app = FastAPI(
+    title="community‑site 社区站后端API",
+    description="社区站二期后端草案",
+    version="0.1.0‑draft"
+)
+# 跨域配置：前端静态页面访问后端接口必须开启
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+# 挂载各个业务模块路由
+app.include_router(message_router)
+app.include_router(visit_router)
+app.include_router(search_router)
+@app.get("/api/health")
+def health_check():
+    """健康检测接口，给运维监控使用，判断后端是否存活"""
+    return {"status": "ok", "project": "community‑site‑api", "version": "0.1.0‑draft"}
+# 全局异常统一返回格式
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "code": exc.status_code,
+            "msg": exc.detail
+        }
+    )
+if __name__ == "__main__":
+    # 开发环境运行；部署上服务器后关闭reload
+    uvicorn.run(
+        app="main:app",
+        host="0.0.0.0",
+        port=8010,
+        reload=True
+    )

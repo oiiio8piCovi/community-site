@@ -1,3 +1,4 @@
+"""Pydantic模型，统一接口入参、出参格式，自动参数校验
 前端传错参数会直接返回错误，不用手写大量if判断
 """
 from pydantic import BaseModel, Field

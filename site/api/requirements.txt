@@ -1,0 +1,4 @@
+fastapi>=0.112.0          # 主API框架
+uvicorn>=0.24.0           # ASGI运行服务器
+pydantic>=2.0             # 数据校验模型
+python-multipart>=0.0.7   # 表单数据支持
