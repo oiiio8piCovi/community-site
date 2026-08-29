@@ -41,11 +41,28 @@
       data.forEach(function (m) {
         const li = document.createElement("li");
         li.className = "msg-item";
-        li.innerHTML =
-          '<span class="msg-meta">#' + m.msg_id + '</span>' +
-          '<span class="msg-nick">' + m.nickname + '</span>' +
-          '<span class="msg-meta">' + m.create_time + '</span>' +
-          '<div class="msg-text">' + m.content + '</div>';
+
+        // 使用 DOM 方法分别设置文本内容
+        const idSpan = document.createElement("span");
+        idSpan.className = "msg-meta";
+        idSpan.textContent = '#' + m.msg_id;
+        
+        const nickSpan = document.createElement("span");
+        nickSpan.className = "msg-nick";
+        nickSpan.textContent = m.nickname;
+        
+        const timeSpan = document.createElement("span");
+        timeSpan.className = "msg-meta";
+        timeSpan.textContent = m.create_time;
+        
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "msg-text";
+        contentDiv.textContent = m.content;
+        
+        li.appendChild(idSpan);
+        li.appendChild(nickSpan);
+        li.appendChild(timeSpan);
+        li.appendChild(contentDiv);
         ul.appendChild(li);
       });
     } catch (e) { /* 同上 */ }
@@ -84,11 +101,16 @@
     }
     box.innerHTML = '<p class="empty-tip">搜「' + keyword + '」：找到 ' + data.count + ' 条</p>';
     data.data.forEach(function (item) {
-      const div = document.createElement("div");
-      div.className = "search-hit";
-      div.innerHTML =
-        '<div class="hit-title">' + item.title + '</div>' +
-        '<div class="msg-text">' + item.content + '</div>';
+      const titleDiv = document.createElement("div");
+      titleDiv.className = "hit-title";
+      titleDiv.textContent = item.title;
+
+      const contentDiv = document.createElement("div");
+      contentDiv.className = "msg-text";
+      contentDiv.textContent = item.content;
+
+      div.appendChild(titleDiv);
+      div.appendChild(contentDiv);
       box.appendChild(div);
     });
   });

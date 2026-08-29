@@ -36,7 +36,19 @@ community-site/
 git clone https://github.com/oiiio8piCovi/community-site.git
 ```
 
-**前端**：浏览器直接打开 `site/index.html`
+**前端**：
+
+网站首页位于 `site/index.html`
+
+需要避免在浏览器中直接通过`file://`协议打开，否则浏览器会禁止绝大多数的JS功能。建议使用python http.server或其他工具搭建本地服务器模拟线上环境
+
+```powershell
+python -m http.server 18080
+# 在另一个终端内：
+start http://localhost:18080/
+# ↑ windows下
+# 其实更推荐直接浏览器访问
+```
 
 **后端**：
 
@@ -48,6 +60,11 @@ uvicorn main:app --reload
 
 ## 文档
 
-[章程](docs/PROJECT-PLAN.md) · [架构](docs/ARCHITECTURE.md) · [协作规范](docs/COLLABORATION.md) · [路线图](docs/ROADMAP.md)
+所有文档位于`docs`文件夹中
 
-先读 README → 章程 → 协作规范
+- [AC社区项目核心章程](docs/PROJECT-PLAN.md)
+- [AC社区架构文档](docs/ARCHITECTURE.md)
+- [开发者协作规范](docs/COLLABORATION.md)
+- [AC社区开发路线图](docs/ROADMAP.md)
+
+推荐阅读顺序： README → 章程 → 协作规范
