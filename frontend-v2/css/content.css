@@ -1,13 +1,14 @@
 .content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: calc(var(--topbar-height) + 40px) 24px 80px
-    }
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: calc(var(--topbar-height) + 40px) 24px 80px;
+}
+
 .test-block {
-    padding: 32px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--glass-border);
-    color: rgba(255, 255, 255, 0.85)
-    }
+  padding: 32px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: rgba(255, 255, 255, 0.85);
+}

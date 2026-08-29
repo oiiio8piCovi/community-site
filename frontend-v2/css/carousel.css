@@ -1,460 +1,581 @@
 /* 轮播组件基础样式 */
 .carousel-container {
-    position: relative;
-    border-radius: var(--glass-radius-lg);
-    overflow: hidden;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur)
-    }
+  position: relative;
+  border-radius: var(--glass-radius-lg);
+  overflow: hidden;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
 .carousel-container.side {
-    background: var(--glass-bg)
-    }
+  background: var(--glass-bg);
+}
+
 .carousel-slides {
-    position: relative;
-    width: 100%;
-    height: 100%
-    }
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    transform: scale(1.05);
-    pointer-events: none
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
 .carousel-slide.active {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto
-    }
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
 .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: var(--glass-radius-lg)
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--glass-radius-lg);
+}
+
 .carousel-slide .slide-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 100%)
-    }
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
 .carousel-slide .slide-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    color: var(--text-strong)
-    }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: var(--text-strong);
+}
+
 .carousel-slide .slide-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 4px
-    }
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 .carousel-slide .slide-desc {
-    font-size: 12px;
-    opacity: 0.8
-    }
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 /* 轮播指示器 */
 .carousel-indicators {
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translatex(-50%);
-    display: flex;
-    gap: 6px;
-    z-index: 10
-    }
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translatex(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
 .carousel-indicator {
-    height: 6px;
-    border-radius: 3px;
-    background: var(--hero-indicator-bg);
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
-    }
+  height: 6px;
+  border-radius: 3px;
+  background: var(--hero-indicator-bg);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .carousel-indicator.active {
-    width: 24px;
-    background: var(--hero-indicator-active)
-    }
+  width: 24px;
+  background: var(--hero-indicator-active);
+}
+
 /* 轮播箭头 */
 .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translatey(-50%);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--hero-arrow-bg);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--hero-arrow-border);
-    color: var(--text-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    opacity: 0
-    }
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--hero-arrow-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--hero-arrow-border);
+  color: var(--text-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0;
+}
+
 .carousel-container:hover .carousel-arrow {
-    opacity: 1
-    }
+  opacity: 1;
+}
+
 .carousel-arrow:hover {
-    background: var(--hover-border);
-    border-color: var(--accent-purple);
-    transform: translatey(-50%) scale(1.1)
-    }
+  background: var(--hover-border);
+  border-color: var(--accent-purple);
+  transform: translatey(-50%) scale(1.1);
+}
+
 .carousel-arrow.prev {
-    left: 12px
-    }
+  left: 12px;
+}
+
 .carousel-arrow.next {
-    right: 12px
-    }
+  right: 12px;
+}
+
 /* 首页布局 */
 .home-section {
-    max-width: 1100px;
-    margin: 40px auto 0;
-    padding: 0 24px 80px
-    }
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 0 24px 80px;
+}
+
 /* 英雄区域容器 */
 .home-hero {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 24px;
-    max-width: 1050px
-    }
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  max-width: 1050px;
+}
+
 /* 左侧大轮播 340x462 */
 .hero-left {
-    width: 340px;
-    height: 462px
-    }
+  width: 340px;
+  height: 462px;
+}
+
 .hero-left .carousel-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px
-    }
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
 .hero-left .carousel-slides {
-    height: 100%
-    }
+  height: 100%;
+}
+
 /* 右侧区域：三行垂直布局，三块都靠右列伸缩对齐 */
 .hero-right {
-    display: flex;
-    flex-direction: column;
-    gap: 24px
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 /* 右侧顶部：精选内容（横条） */
 .hero-right-top {
-    height: 194px
-    }
+  height: 194px;
+}
+
 .hero-right-top .featured-card {
-    width: 100%;
-    height: 100%;
-    padding: 24px;
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(99, 102, 241, 0.1));
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: all 0.3s ease
-    }
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.15),
+    rgba(99, 102, 241, 0.1)
+  );
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
 .hero-right-top .featured-card:hover {
-    transform: translatey(-4px);
-    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.2)
-    }
+  transform: translatey(-4px);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.2);
+}
+
 .hero-right-top .featured-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #a855f7, #6366f1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    color: white
-    }
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: white;
+}
+
 .hero-right-top .featured-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-strong);
-    margin-bottom: 8px
-    }
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+}
+
 .hero-right-top .featured-desc {
-    font-size: 14px;
-    color: var(--text-body);
-    line-height: 1.6
-    }
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
 /* 右侧底部：左右两列 */
 .hero-right-bottom {
-    display: flex;
-    gap: 24px;
-    height: 220px;
-    min-height: 220px;
-    margin-top: 24px
-    }
+  display: flex;
+  gap: 24px;
+  height: 220px;
+  min-height: 220px;
+  margin-top: 24px;
+}
+
 .hero-right-bottom-left {
-    flex: 1.8;
-    height: 100%;
-    min-width: 0;
-    position: relative
-    }
+  flex: 1.8;
+  height: 100%;
+  min-width: 0;
+  position: relative;
+}
+
 .hero-right-bottom-right {
-    flex: 1;
-    height: 100%;
-    min-width: 0;
-    position: relative
-    }
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  position: relative;
+}
+
 .hero-right-bottom-left .carousel-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px
-    }
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
 /* 右下右签到 219x220 */
 .hero-right-bottom-right {
-    height: 100%;
-    min-width: 0
-    }
+  height: 100%;
+  min-width: 0;
+}
+
 /* ============ 主题切换按钮：test 同款 pill 形开关（包裹层负责毛玻璃） ============ */
 .hero-right-bottom-right {
-    flex: 1;
-    /* 继承自父 .hero-right-bottom */
-    height: 100%;
-    /* 220px，和左侧文章轮播同高 */
-    min-width: 0;
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch
-    }
+  flex: 1;
+  /* 继承自父 .hero-right-bottom */
+  height: 100%;
+  /* 220px，和左侧文章轮播同高 */
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
 /* em 缩放基准：test 原版 120px → 此处 32px（约 27%，合适尺寸） */
 .theme-toggle {
-    --base-scale: 32px;
-    --toggle-width: 5.625em;
-    --toggle-height: 2.5em;
-    --radius-pill: 100em;
-    --sun-diameter: 2.125em;
-    --bg-toggle-light: #3d7eae;
-    --bg-toggle-dark: #1d1f2c;
-    --color-sun: #ecca2f;
-    --color-moon: #c4c9d1;
-    --color-crater: #959db1;
-    --color-star: #fff;
-    --color-cloud-front: #f3fdff;
-    --color-cloud-back: #aacadf;
-    --shadow-primary: rgba(0, 0, 0, 0.25);
-    --shadow-highlight: rgba(255, 255, 255, 0.94);
-    --halo-color: rgba(255, 255, 255, 0.1);
-    --transition-standard: 0.3s ease;
-    font-size: var(--base-scale);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    /* 额外：加一圈柔光阴影让按钮从背景浮起 */
-    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.25))
-    }
+  --base-scale: 32px;
+  --toggle-width: 5.625em;
+  --toggle-height: 2.5em;
+  --radius-pill: 100em;
+  --sun-diameter: 2.125em;
+  --bg-toggle-light: #3d7eae;
+  --bg-toggle-dark: #1d1f2c;
+  --color-sun: #ecca2f;
+  --color-moon: #c4c9d1;
+  --color-crater: #959db1;
+  --color-star: #fff;
+  --color-cloud-front: #f3fdff;
+  --color-cloud-back: #aacadf;
+  --shadow-primary: rgba(0, 0, 0, 0.25);
+  --shadow-highlight: rgba(255, 255, 255, 0.94);
+  --halo-color: rgba(255, 255, 255, 0.1);
+  --transition-standard: 0.3s ease;
+  font-size: var(--base-scale);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  /* 额外：加一圈柔光阴影让按钮从背景浮起 */
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.25));
+}
+
 .theme-toggle__container {
-    width: var(--toggle-width);
-    height: var(--toggle-height);
-    background-color: var(--bg-toggle-light);
-    border-radius: var(--radius-pill);
-    position: relative;
-    overflow: hidden;
-    transition: background-color var(--transition-standard);
-    box-shadow: 0.06em 0.06em 0.125em var(--shadow-highlight)
-    }
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  background-color: var(--bg-toggle-light);
+  border-radius: var(--radius-pill);
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition-standard);
+  box-shadow: 0.06em 0.06em 0.125em var(--shadow-highlight);
+}
+
 html.dark .theme-toggle__container {
-    background-color: var(--bg-toggle-dark)
-    }
+  background-color: var(--bg-toggle-dark);
+}
+
 /* 容器内阴影（增强立体感） */
 .theme-toggle__container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    box-shadow: 0 0.05em 0.187em rgba(0, 0, 0, 0.5) inset;
-    border-radius: var(--radius-pill);
-    pointer-events: none
-    }
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0.05em 0.187em rgba(0, 0, 0, 0.5) inset;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+}
+
 /* ============ 云朵（日间） ============ */
 .theme-toggle__clouds {
-    position: absolute;
-    left: 0.3em;
-    top: 2em;
-    transform: translatey(0);
-    width: 1.25em;
-    height: 1.25em;
-    background-color: var(--color-cloud-front);
-    border-radius: 50%;
-    box-shadow: 0.937em 0.312em var(--color-cloud-front), 1.437em 0.375em var(--color-cloud-front), 2.187em 0 var(--color-cloud-front), 2.937em 0.312em var(--color-cloud-front), 3.625em -0.062em var(--color-cloud-front), 4.5em -0.312em var(--color-cloud-front), 4.625em -1.75em 0 0.437em var(--color-cloud-front), -0.312em -0.312em var(--color-cloud-back), 0.5em -0.125em var(--color-cloud-back), 1.25em -0.062em var(--color-cloud-back), 2em -0.312em var(--color-cloud-back), 2.625em 0 var(--color-cloud-back), 3.375em -0.437em var(--color-cloud-back), 4em -0.625em var(--color-cloud-back), 4.125em -2.125em 0 0.437em var(--color-cloud-back);
-    transition: transform var(--transition-standard)
-    }
+  position: absolute;
+  left: 0.3em;
+  top: 2em;
+  transform: translatey(0);
+  width: 1.25em;
+  height: 1.25em;
+  background-color: var(--color-cloud-front);
+  border-radius: 50%;
+  box-shadow:
+    0.937em 0.312em var(--color-cloud-front),
+    1.437em 0.375em var(--color-cloud-front),
+    2.187em 0 var(--color-cloud-front),
+    2.937em 0.312em var(--color-cloud-front),
+    3.625em -0.062em var(--color-cloud-front),
+    4.5em -0.312em var(--color-cloud-front),
+    4.625em -1.75em 0 0.437em var(--color-cloud-front),
+    -0.312em -0.312em var(--color-cloud-back),
+    0.5em -0.125em var(--color-cloud-back),
+    1.25em -0.062em var(--color-cloud-back),
+    2em -0.312em var(--color-cloud-back),
+    2.625em 0 var(--color-cloud-back),
+    3.375em -0.437em var(--color-cloud-back),
+    4em -0.625em var(--color-cloud-back),
+    4.125em -2.125em 0 0.437em var(--color-cloud-back);
+  transition: transform var(--transition-standard);
+}
+
 html.dark .theme-toggle__container .theme-toggle__clouds {
-    transform: translatey(3em)
-    }
+  transform: translatey(3em);
+}
+
 /* ============ 星空（夜间） ============ */
 .theme-toggle__stars {
-    position: absolute;
-    left: 0.3em;
-    transform: translatey(-2em);
-    transition: transform var(--transition-standard);
-    width: 2.75em;
-    color: var(--color-star)
-    }
+  position: absolute;
+  left: 0.3em;
+  transform: translatey(-2em);
+  transition: transform var(--transition-standard);
+  width: 2.75em;
+  color: var(--color-star);
+}
+
 .theme-toggle__stars svg {
-    display: block;
-    width: 100%;
-    height: auto
-    }
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 html.dark .theme-toggle__container .theme-toggle__stars {
-    transform: translatey(0.5em)
-    }
+  transform: translatey(0.5em);
+}
+
 /* ============ 太阳 / 月亮遮罩 ============ */
 .theme-toggle__sun {
-    width: var(--sun-diameter);
-    height: var(--sun-diameter);
-    background-color: var(--color-sun);
-    border-radius: 50%;
-    position: absolute;
-    top: var(--sun-offset);
-    transform: translatex(var(--sun-offset));
-    box-shadow: 0.05em 0.125em 0.125em var(--shadow-primary), 0 0.05em 0.125em var(--shadow-primary), 0.05em 0.05em 0.05em 0 rgba(254, 255, 239, 0.61) inset, 0 -0.05em 0.05em 0 #a1872a inset, 0 0 0 0.625em var(--halo-color), 0 0 0 1.25em var(--halo-color), 0 0 0 1.875em var(--halo-color);
-    transition: transform var(--transition-standard);
-    overflow: hidden
-    }
+  width: var(--sun-diameter);
+  height: var(--sun-diameter);
+  background-color: var(--color-sun);
+  border-radius: 50%;
+  position: absolute;
+  top: var(--sun-offset);
+  transform: translatex(var(--sun-offset));
+  box-shadow:
+    0.05em 0.125em 0.125em var(--shadow-primary),
+    0 0.05em 0.125em var(--shadow-primary),
+    0.05em 0.05em 0.05em 0 rgba(254, 255, 239, 0.61) inset,
+    0 -0.05em 0.05em 0 #a1872a inset,
+    0 0 0 0.625em var(--halo-color),
+    0 0 0 1.25em var(--halo-color),
+    0 0 0 1.875em var(--halo-color);
+  transition: transform var(--transition-standard);
+  overflow: hidden;
+}
+
 html.dark .theme-toggle__container .theme-toggle__sun {
-    transform: translatex(calc(var(--toggle-width) - var(--sun-diameter) - var(--sun-offset)))
-    }
+  transform: translatex(
+    calc(var(--toggle-width) - var(--sun-diameter) - var(--sun-offset))
+  );
+}
+
 /* 月亮遮罩：从右滑入覆盖太阳 */
 .theme-toggle__moon-mask {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-moon);
-    border-radius: inherit;
-    transform: translatex(100%);
-    transition: transform var(--transition-standard);
-    box-shadow: 0.062em 0.062em 0.062em 0 rgba(254, 255, 239, 0.61) inset, 0 -0.062em 0.062em 0 #969696 inset
-    }
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-moon);
+  border-radius: inherit;
+  transform: translatex(100%);
+  transition: transform var(--transition-standard);
+  box-shadow:
+    0.062em 0.062em 0.062em 0 rgba(254, 255, 239, 0.61) inset,
+    0 -0.062em 0.062em 0 #969696 inset;
+}
+
 html.dark .theme-toggle__container .theme-toggle__moon-mask {
-    transform: translatex(0)
-    }
+  transform: translatex(0);
+}
+
 /* 陨石坑 */
 .theme-toggle__crater {
-    position: absolute;
-    background-color: var(--color-crater);
-    border-radius: 50%;
-    box-shadow: 0 0.03em 0.06em var(--shadow-primary) inset
-    }
+  position: absolute;
+  background-color: var(--color-crater);
+  border-radius: 50%;
+  box-shadow: 0 0.03em 0.06em var(--shadow-primary) inset;
+}
+
 .theme-toggle__crater:nth-of-type(1) {
-    top: 0.75em;
-    left: 0.3em;
-    width: 0.75em;
-    height: 0.75em
-    }
+  top: 0.75em;
+  left: 0.3em;
+  width: 0.75em;
+  height: 0.75em;
+}
+
 .theme-toggle__crater:nth-of-type(2) {
-    top: 0.9em;
-    left: 1.375em;
-    width: 0.375em;
-    height: 0.375em
-    }
+  top: 0.9em;
+  left: 1.375em;
+  width: 0.375em;
+  height: 0.375em;
+}
+
 .theme-toggle__crater:nth-of-type(3) {
-    top: 0.3em;
-    left: 0.8em;
-    width: 0.25em;
-    height: 0.25em
-    }
+  top: 0.3em;
+  left: 0.8em;
+  width: 0.25em;
+  height: 0.25em;
+}
+
 /* ============ 悬停：太阳微移 ============ */
 .theme-toggle__container:hover .theme-toggle__sun {
-    transform: translatex(calc(var(--sun-offset) + 0.187em))
-    }
+  transform: translatex(calc(var(--sun-offset) + 0.187em));
+}
+
 html.dark .theme-toggle__container:hover .theme-toggle__sun {
-    transform: translatex(calc(var(--toggle-width) - var(--sun-diameter) - var(--sun-offset) - 0.187em))
-    }
+  transform: translatex(
+    calc(
+      var(--toggle-width) - var(--sun-diameter) - var(--sun-offset) - 0.187em
+    )
+  );
+}
+
 /* ============ 焦点环 ============ */
 .theme-toggle:focus-visible .theme-toggle__container {
-    outline: 2px solid rgba(232, 85, 138, 0.6);
-    outline-offset: 4px
-    }
+  outline: 2px solid rgba(232, 85, 138, 0.6);
+  outline-offset: 4px;
+}
+
 html.dark .theme-toggle:focus-visible .theme-toggle__container {
-    outline-color: rgba(168, 85, 247, 0.6)
-    }
+  outline-color: rgba(168, 85, 247, 0.6);
+}
+
 /* ============ 下方标签 ============ */
 .theme-toggle__label {
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: rgba(60, 35, 50, 0.78);
-    /* 日间：深紫红 */
-    transition: color 0.5s ease;
-    user-select: none
-    }
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(60, 35, 50, 0.78);
+  /* 日间：深紫红 */
+  transition: color 0.5s ease;
+  user-select: none;
+}
+
 html.dark .theme-toggle__label {
-    color: rgba(255, 255, 255, 0.78);
-    /* 夜间：浅色 */
-    }
+  color: rgba(255, 255, 255, 0.78);
+  /* 夜间：浅色 */
+}
+
 /* 响应式布局 */
 @media screen and (max-width: 900px) {
-    .home-hero {
-        grid-template-columns: 1fr;
-        max-width: 100%
-        }
-    .hero-left {
-        width: 100%;
-        height: 280px
-        }
-    .hero-right-top {
-        height: auto;
-        min-height: 160px
-        }
-    .hero-right-bottom {
-        flex-direction: column;
-        height: auto;
-        gap: 20px
-        }
-    .hero-right-bottom-left {
-        height: 200px
-        }
-    .hero-right-bottom-right {
-        height: 200px;
-        /* 与左侧文章轮播同高 */
-        min-height: 0
-        }
-    }
+  .home-hero {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .hero-left {
+    width: 100%;
+    height: 280px;
+  }
+
+  .hero-right-top {
+    height: auto;
+    min-height: 160px;
+  }
+
+  .hero-right-bottom {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+  .hero-right-bottom-left {
+    height: 200px;
+  }
+
+  .hero-right-bottom-right {
+    height: 200px;
+    /* 与左侧文章轮播同高 */
+    min-height: 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
-    .hero-left {
-        height: 220px
-        }
-    .hero-right-bottom-left {
-        height: 160px
-        }
-    /* 移动端：缩小主题切换按钮 */
-    .theme-toggle {
-        --base-scale: 26px
-        }
-    .hero-right-bottom-right {
-        height: 160px;
-        /* 与左侧文章轮播同高 */
-        min-height: 0
-        }
-    }
+  .hero-left {
+    height: 220px;
+  }
+
+  .hero-right-bottom-left {
+    height: 160px;
+  }
+
+  /* 移动端：缩小主题切换按钮 */
+  .theme-toggle {
+    --base-scale: 26px;
+  }
+
+  .hero-right-bottom-right {
+    height: 160px;
+    /* 与左侧文章轮播同高 */
+    min-height: 0;
+  }
+}
+
 /* 悬浮效果 */
 .carousel-slide:hover img {
-    transform: scale(1.05)
-    }
+  transform: scale(1.05);
+}
+
 .carousel-slide img {
-    transition: transform 0.6s ease
-    }
+  transition: transform 0.6s ease;
+}
+
 /* 减少动画 (尊重用户偏好) */
 @media (prefers-reduced-motion: reduce) {
-    .carousel-slide, .carousel-indicator, .carousel-arrow, .theme-toggle__container, .theme-toggle__clouds, .theme-toggle__stars, .theme-toggle__sun, .theme-toggle__moon-mask, .theme-toggle__label, .featured-card {
-        transition: none;
-        animation: none
-        }
-    }
+  .carousel-slide,
+  .carousel-indicator,
+  .carousel-arrow,
+  .theme-toggle__container,
+  .theme-toggle__clouds,
+  .theme-toggle__stars,
+  .theme-toggle__sun,
+  .theme-toggle__moon-mask,
+  .theme-toggle__label,
+  .featured-card {
+    transition: none;
+    animation: none;
+  }
+}
