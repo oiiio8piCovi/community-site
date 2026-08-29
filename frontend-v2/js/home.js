@@ -28,10 +28,7 @@
           }
         });
       },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px",
-      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
 
     nodes.forEach(function (el) {
@@ -78,7 +75,6 @@
       }
       var duration = 900;
       var startTs = null;
-
       function step(ts) {
         if (startTs === null) startTs = ts;
         var p = Math.min((ts - startTs) / duration, 1);
@@ -119,9 +115,7 @@
           }
         });
       },
-      {
-        threshold: 0.4,
-      },
+      { threshold: 0.4 },
     );
 
     items.forEach(function (el) {

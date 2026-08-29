@@ -86,9 +86,7 @@
         function (e) {
           touchStartX = e.changedTouches[0].screenX;
         },
-        {
-          passive: true,
-        },
+        { passive: true },
       );
 
       carousel.addEventListener(
@@ -97,9 +95,7 @@
           touchEndX = e.changedTouches[0].screenX;
           handleSwipe(id, touchStartX, touchEndX);
         },
-        {
-          passive: true,
-        },
+        { passive: true },
       );
 
       startTimer(id);

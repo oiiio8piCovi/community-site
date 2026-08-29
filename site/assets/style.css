@@ -18,29 +18,24 @@ body {
   text-align: center;
   padding: 4.5rem 1rem 3rem;
 }
-
 .site-name {
   font-size: 3.2rem;
   letter-spacing: 0.4em;
-  margin-left: 0.4em;
-  /* 抵消 letter-spacing 的右侧偏移 */
+  margin-left: 0.4em; /* 抵消 letter-spacing 的右侧偏移 */
   color: #fff;
   text-shadow: 0 0 30px rgba(139, 156, 247, 0.35);
 }
-
 .site-sub {
   margin-top: 0.4rem;
   color: #8b9cf7;
   font-size: 1.15rem;
   letter-spacing: 0.2em;
 }
-
 .site-full {
   margin-top: 0.6rem;
   color: #9aa0b8;
   font-size: 0.95rem;
 }
-
 .site-slogan {
   margin-top: 1.2rem;
   color: #6f7590;
@@ -54,7 +49,6 @@ body {
   margin: -1.5rem auto 3rem;
   padding: 0 1rem;
 }
-
 .card {
   background: #171a26;
   border: 1px solid #262a3d;
@@ -62,13 +56,11 @@ body {
   padding: 1.4rem 1.5rem;
   margin-bottom: 1.2rem;
 }
-
 .card-title {
   font-size: 1.1rem;
   margin-bottom: 0.9rem;
   color: #dfe3ff;
 }
-
 .api-tag {
   font-size: 0.75rem;
   color: #6f7590;
@@ -85,7 +77,6 @@ body {
   color: #b9bfd8;
   margin-bottom: 0.5rem;
 }
-
 .status-line strong {
   color: #8b9cf7;
   font-size: 1.1rem;
@@ -98,7 +89,6 @@ body {
   margin-bottom: 1rem;
   flex-wrap: wrap;
 }
-
 .msg-form input {
   flex: 1;
   min-width: 140px;
@@ -110,11 +100,9 @@ body {
   font-size: 0.95rem;
   outline: none;
 }
-
 .msg-form input:focus {
   border-color: #8b9cf7;
 }
-
 .btn {
   background: #8b9cf7;
   border: none;
@@ -125,11 +113,9 @@ body {
   cursor: pointer;
   font-size: 0.95rem;
 }
-
 .btn:hover {
   background: #a3b1ff;
 }
-
 .btn-mini {
   background: transparent;
   border: 1px solid #3a4163;
@@ -140,7 +126,6 @@ body {
   margin-left: 8px;
   font-size: 0.8rem;
 }
-
 .btn-mini:hover {
   border-color: #8b9cf7;
   color: #dfe3ff;
@@ -150,27 +135,22 @@ body {
 .msg-list {
   list-style: none;
 }
-
 .msg-item {
   border-bottom: 1px dashed #262a3d;
   padding: 0.7rem 0;
 }
-
 .msg-item:last-child {
   border-bottom: none;
 }
-
 .msg-meta {
   font-size: 0.8rem;
   color: #6f7590;
 }
-
 .msg-nick {
   color: #8b9cf7;
   font-weight: 600;
   margin-right: 8px;
 }
-
 .msg-text {
   color: #d5d8ea;
   margin-top: 2px;
@@ -181,7 +161,6 @@ body {
   font-size: 0.9rem;
   color: #b9bfd8;
 }
-
 .search-hit {
   background: #10131d;
   border-radius: 8px;
@@ -189,12 +168,10 @@ body {
   margin-bottom: 8px;
   border: 1px solid #262a3d;
 }
-
 .search-hit .hit-title {
   color: #8b9cf7;
   font-weight: 600;
 }
-
 .empty-tip {
   color: #6f7590;
 }
@@ -206,7 +183,6 @@ body {
   font-size: 0.8rem;
   padding-bottom: 2.5rem;
 }
-
 .footer a {
   color: #8b9cf7;
   text-decoration: none;
@@ -216,7 +192,6 @@ body {
   .site-name {
     font-size: 2.3rem;
   }
-
   .msg-form {
     flex-direction: column;
   }

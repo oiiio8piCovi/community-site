@@ -82,7 +82,7 @@
   position: absolute;
   bottom: 12px;
   left: 50%;
-  transform: translatex(-50%);
+  transform: translateX(-50%);
   display: flex;
   gap: 6px;
   z-index: 10;
@@ -105,7 +105,7 @@
 .carousel-arrow {
   position: absolute;
   top: 50%;
-  transform: translatey(-50%);
+  transform: translateY(-50%);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -129,7 +129,7 @@
 .carousel-arrow:hover {
   background: var(--hover-border);
   border-color: var(--accent-purple);
-  transform: translatey(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-arrow.prev {
@@ -201,7 +201,7 @@
 }
 
 .hero-right-top .featured-card:hover {
-  transform: translatey(-4px);
+  transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(168, 85, 247, 0.2);
 }
 
@@ -267,10 +267,8 @@
 
 /* ============ 主题切换按钮：test 同款 pill 形开关（包裹层负责毛玻璃） ============ */
 .hero-right-bottom-right {
-  flex: 1;
-  /* 继承自父 .hero-right-bottom */
-  height: 100%;
-  /* 220px，和左侧文章轮播同高 */
+  flex: 1; /* 继承自父 .hero-right-bottom */
+  height: 100%; /* 220px，和左侧文章轮播同高 */
   min-width: 0;
   position: relative;
   display: flex;
@@ -285,6 +283,8 @@
   --toggle-height: 2.5em;
   --radius-pill: 100em;
   --sun-diameter: 2.125em;
+  --sun-offset: calc((var(--toggle-height) - var(--sun-diameter)) / 2);
+
   --bg-toggle-light: #3d7eae;
   --bg-toggle-dark: #1d1f2c;
   --color-sun: #ecca2f;
@@ -293,10 +293,12 @@
   --color-star: #fff;
   --color-cloud-front: #f3fdff;
   --color-cloud-back: #aacadf;
+
   --shadow-primary: rgba(0, 0, 0, 0.25);
   --shadow-highlight: rgba(255, 255, 255, 0.94);
   --halo-color: rgba(255, 255, 255, 0.1);
   --transition-standard: 0.3s ease;
+
   font-size: var(--base-scale);
   background: none;
   border: none;
@@ -328,7 +330,7 @@ html.dark .theme-toggle__container {
   content: "";
   position: absolute;
   inset: 0;
-  box-shadow: 0 0.05em 0.187em rgba(0, 0, 0, 0.5) inset;
+  box-shadow: 0em 0.05em 0.187em rgba(0, 0, 0, 0.5) inset;
   border-radius: var(--radius-pill);
   pointer-events: none;
 }
@@ -338,11 +340,12 @@ html.dark .theme-toggle__container {
   position: absolute;
   left: 0.3em;
   top: 2em;
-  transform: translatey(0);
+  transform: translateY(0);
   width: 1.25em;
   height: 1.25em;
   background-color: var(--color-cloud-front);
   border-radius: 50%;
+
   box-shadow:
     0.937em 0.312em var(--color-cloud-front),
     1.437em 0.375em var(--color-cloud-front),
@@ -355,22 +358,23 @@ html.dark .theme-toggle__container {
     0.5em -0.125em var(--color-cloud-back),
     1.25em -0.062em var(--color-cloud-back),
     2em -0.312em var(--color-cloud-back),
-    2.625em 0 var(--color-cloud-back),
+    2.625em 0em var(--color-cloud-back),
     3.375em -0.437em var(--color-cloud-back),
     4em -0.625em var(--color-cloud-back),
     4.125em -2.125em 0 0.437em var(--color-cloud-back);
+
   transition: transform var(--transition-standard);
 }
 
 html.dark .theme-toggle__container .theme-toggle__clouds {
-  transform: translatey(3em);
+  transform: translateY(3em);
 }
 
 /* ============ 星空（夜间） ============ */
 .theme-toggle__stars {
   position: absolute;
   left: 0.3em;
-  transform: translatey(-2em);
+  transform: translateY(-2em);
   transition: transform var(--transition-standard);
   width: 2.75em;
   color: var(--color-star);
@@ -383,7 +387,7 @@ html.dark .theme-toggle__container .theme-toggle__clouds {
 }
 
 html.dark .theme-toggle__container .theme-toggle__stars {
-  transform: translatey(0.5em);
+  transform: translateY(0.5em);
 }
 
 /* ============ 太阳 / 月亮遮罩 ============ */
@@ -394,12 +398,12 @@ html.dark .theme-toggle__container .theme-toggle__stars {
   border-radius: 50%;
   position: absolute;
   top: var(--sun-offset);
-  transform: translatex(var(--sun-offset));
+  transform: translateX(var(--sun-offset));
   box-shadow:
     0.05em 0.125em 0.125em var(--shadow-primary),
-    0 0.05em 0.125em var(--shadow-primary),
-    0.05em 0.05em 0.05em 0 rgba(254, 255, 239, 0.61) inset,
-    0 -0.05em 0.05em 0 #a1872a inset,
+    0em 0.05em 0.125em var(--shadow-primary),
+    0.05em 0.05em 0.05em 0em rgba(254, 255, 239, 0.61) inset,
+    0em -0.05em 0.05em 0em #a1872a inset,
     0 0 0 0.625em var(--halo-color),
     0 0 0 1.25em var(--halo-color),
     0 0 0 1.875em var(--halo-color);
@@ -408,7 +412,7 @@ html.dark .theme-toggle__container .theme-toggle__stars {
 }
 
 html.dark .theme-toggle__container .theme-toggle__sun {
-  transform: translatex(
+  transform: translateX(
     calc(var(--toggle-width) - var(--sun-diameter) - var(--sun-offset))
   );
 }
@@ -420,15 +424,15 @@ html.dark .theme-toggle__container .theme-toggle__sun {
   height: 100%;
   background-color: var(--color-moon);
   border-radius: inherit;
-  transform: translatex(100%);
+  transform: translateX(100%);
   transition: transform var(--transition-standard);
   box-shadow:
-    0.062em 0.062em 0.062em 0 rgba(254, 255, 239, 0.61) inset,
-    0 -0.062em 0.062em 0 #969696 inset;
+    0.062em 0.062em 0.062em 0em rgba(254, 255, 239, 0.61) inset,
+    0em -0.062em 0.062em 0em #969696 inset;
 }
 
 html.dark .theme-toggle__container .theme-toggle__moon-mask {
-  transform: translatex(0);
+  transform: translateX(0);
 }
 
 /* 陨石坑 */
@@ -436,7 +440,7 @@ html.dark .theme-toggle__container .theme-toggle__moon-mask {
   position: absolute;
   background-color: var(--color-crater);
   border-radius: 50%;
-  box-shadow: 0 0.03em 0.06em var(--shadow-primary) inset;
+  box-shadow: 0em 0.03em 0.06em var(--shadow-primary) inset;
 }
 
 .theme-toggle__crater:nth-of-type(1) {
@@ -462,11 +466,11 @@ html.dark .theme-toggle__container .theme-toggle__moon-mask {
 
 /* ============ 悬停：太阳微移 ============ */
 .theme-toggle__container:hover .theme-toggle__sun {
-  transform: translatex(calc(var(--sun-offset) + 0.187em));
+  transform: translateX(calc(var(--sun-offset) + 0.187em));
 }
 
 html.dark .theme-toggle__container:hover .theme-toggle__sun {
-  transform: translatex(
+  transform: translateX(
     calc(
       var(--toggle-width) - var(--sun-diameter) - var(--sun-offset) - 0.187em
     )
@@ -488,15 +492,13 @@ html.dark .theme-toggle:focus-visible .theme-toggle__container {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: rgba(60, 35, 50, 0.78);
-  /* 日间：深紫红 */
+  color: rgba(60, 35, 50, 0.78); /* 日间：深紫红 */
   transition: color 0.5s ease;
   user-select: none;
 }
 
 html.dark .theme-toggle__label {
-  color: rgba(255, 255, 255, 0.78);
-  /* 夜间：浅色 */
+  color: rgba(255, 255, 255, 0.78); /* 夜间：浅色 */
 }
 
 /* 响应式布局 */
@@ -527,8 +529,7 @@ html.dark .theme-toggle__label {
   }
 
   .hero-right-bottom-right {
-    height: 200px;
-    /* 与左侧文章轮播同高 */
+    height: 200px; /* 与左侧文章轮播同高 */
     min-height: 0;
   }
 }
@@ -548,8 +549,7 @@ html.dark .theme-toggle__label {
   }
 
   .hero-right-bottom-right {
-    height: 160px;
-    /* 与左侧文章轮播同高 */
+    height: 160px; /* 与左侧文章轮播同高 */
     min-height: 0;
   }
 }

@@ -10,12 +10,12 @@
   border-bottom: 1px solid var(--glass-border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   z-index: 1000;
-  transform: translatey(0);
+  transform: translateY(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .topbar--hidden {
-  transform: translatey(-100%);
+  transform: translateY(-100%);
 }
 
 .topbar__inner {
@@ -34,7 +34,7 @@
   overflow: hidden;
   font-size: 1.15rem;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   white-space: nowrap;
   letter-spacing: -0.02em;
@@ -57,7 +57,7 @@
   padding: 6px 14px;
   border-radius: 8px;
   font-size: 0.9rem;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -76,7 +76,7 @@
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.2s;
 }

@@ -29,7 +29,5 @@
     }
   }
 
-  window.addEventListener("scroll", onScroll, {
-    passive: true,
-  });
+  window.addEventListener("scroll", onScroll, { passive: true });
 })();

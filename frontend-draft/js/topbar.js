@@ -26,8 +26,6 @@
         ticking = true;
       }
     },
-    {
-      passive: true,
-    },
+    { passive: true },
   );
 })();
