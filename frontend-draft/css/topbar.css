@@ -1,86 +1,76 @@
 .topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--topbar-height);
-  background: var(--topbar-bg);
-  backdrop-filter: blur(10px) saturate(1.1);
-  -webkit-backdrop-filter: blur(10px) saturate(1.1);
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-  z-index: 1000;
-  transform: translateY(0);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--topbar-height);
+    background: var(--topbar-bg);
+    backdrop-filter: blur(10px) saturate(1.1);
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    z-index: 1000;
+    transform: translatey(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+    }
 .topbar--hidden {
-  transform: translateY(-100%);
-}
-
+    transform: translatey(-100%)
+    }
 .topbar__inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  height: 100%;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px
+    }
 .topbar__logo {
-  position: relative;
-  overflow: hidden;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  white-space: nowrap;
-  letter-spacing: -0.02em;
-  transition: color 0.2s;
-}
-
+    position: relative;
+    overflow: hidden;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+    transition: color 0.2s
+    }
 .topbar__logo:hover {
-  color: var(--accent);
-}
-
+    color: var(--accent)
+    }
 .topbar__nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
+    display: flex;
+    align-items: center;
+    gap: 8px
+    }
 .topbar__link {
-  position: relative;
-  overflow: hidden;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.topbar__link:hover,
-.topbar__link--active {
-  color: var(--accent);
-}
-
+    position: relative;
+    overflow: hidden;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s
+    }
+.topbar__link:hover, .topbar__link--active {
+    color: var(--accent)
+    }
 .topbar__github {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s
+    }
 .topbar__github:hover {
-  color: var(--accent);
-}
+    color: var(--accent)
+    }
