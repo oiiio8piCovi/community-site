@@ -45,7 +45,10 @@
   font-size: 1.05rem;
   font-weight: 400;
   font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
 }
 
 .search-bar__input::placeholder {

@@ -18,7 +18,7 @@
    * 实际主题切换值在 glass.css 里重新定义）
    */
   --hover-border: rgba(168, 85, 247, 0.55);
-  --hover-glow:   rgba(168, 85, 247, 0.32);
+  --hover-glow: rgba(168, 85, 247, 0.32);
 }
 
 html {
@@ -32,7 +32,9 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   min-height: 100vh;
   color: #ffffff;
   line-height: 1.6;

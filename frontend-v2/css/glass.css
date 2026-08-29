@@ -22,8 +22,10 @@
   --glass-bg-soft: rgba(255, 255, 255, 0.08);
   --glass-border: rgba(255, 255, 255, 0.28);
   --glass-border-soft: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.32), 0 2px 6px rgba(0, 0, 0, 0.12);
-  --glass-shadow-hover: 0 14px 48px rgba(168, 85, 247, 0.32), 0 2px 6px rgba(0, 0, 0, 0.12);
+  --glass-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.32), 0 2px 6px rgba(0, 0, 0, 0.12);
+  --glass-shadow-hover:
+    0 14px 48px rgba(168, 85, 247, 0.32), 0 2px 6px rgba(0, 0, 0, 0.12);
 
   /* ============ 玻璃模糊参数（所有组件统一） ============ */
   --glass-blur: blur(18px) saturate(1.6);
@@ -36,38 +38,46 @@
   /* ============ 主题色变量 ============ */
   /* 日间：樱粉色 */
   --theme-name: light;
-  --bg-page: #ffe9f1;               /* 页面底色（樱粉） */
+  --bg-page: #ffe9f1; /* 页面底色（樱粉） */
   --bg-page-overlay: rgba(255, 200, 220, 0.35); /* body::before 蒙版 */
   --topbar-bg: rgba(255, 220, 232, 0.55);
   --topbar-border: rgba(255, 255, 255, 0.5);
-  --topbar-text: #1a1a1a;            /* 顶栏文字（日间深色） */
-  --accent: #e8558a;                /* 主题强调：樱粉 */
+  --topbar-text: #1a1a1a; /* 顶栏文字（日间深色） */
+  --accent: #e8558a; /* 主题强调：樱粉 */
   --accent-soft: rgba(232, 85, 138, 0.18);
   --featured-bg-from: rgba(232, 85, 138, 0.22);
   --featured-bg-to: rgba(168, 85, 247, 0.14);
 
   /* hover 紫色（两个主题都用同一个紫，避免暗色 hover 时变白看不出来） */
-  --hover-border:    rgba(168, 85, 247, 0.55);
-  --hover-glow:      rgba(168, 85, 247, 0.32);
-  --hover-shadow:    0 12px 36px rgba(168, 85, 247, 0.22);
-  --accent-purple:   #a855f7;
+  --hover-border: rgba(168, 85, 247, 0.55);
+  --hover-glow: rgba(168, 85, 247, 0.32);
+  --hover-shadow: 0 12px 36px rgba(168, 85, 247, 0.22);
+  --accent-purple: #a855f7;
 
   /* ============ 文字色（亮主题：深色文字） ============ */
-  --text-strong: #1a1a1a;            /* 标题/重点:近黑 */
-  --text-body:   #3a3a3a;            /* 正文:深灰 */
-  --text-muted:  #6e6e6e;            /* 次要:中灰 */
-  --text-soft:   #8a8a8a;            /* 辅助:浅灰 */
+  --text-strong: #1a1a1a; /* 标题/重点:近黑 */
+  --text-body: #3a3a3a; /* 正文:深灰 */
+  --text-muted: #6e6e6e; /* 次要:中灰 */
+  --text-soft: #8a8a8a; /* 辅助:浅灰 */
 
   /* ============ 装饰渐变（亮主题：深色对深色） ============ */
-  --text-name-gradient: linear-gradient(135deg, #1a1a1a, #6b21a8);  /* 标题渐变：近黑 → 紫 */
-  --stat-number-gradient: linear-gradient(135deg, #a855f7, #ec4899);  /* 数字渐变：紫 → 粉（保留品牌色） */
+  --text-name-gradient: linear-gradient(
+    135deg,
+    #1a1a1a,
+    #6b21a8
+  ); /* 标题渐变：近黑 → 紫 */
+  --stat-number-gradient: linear-gradient(
+    135deg,
+    #a855f7,
+    #ec4899
+  ); /* 数字渐变：紫 → 粉（保留品牌色） */
 
   /* ============ 胶囊 / tag（亮主题：浅粉底 + 深字） ============ */
-  --chip-bg:     rgba(255, 255, 255, 0.55);
-  --chip-border: rgba(0, 0, 0, 0.10);
-  --tag-bg:      rgba(168, 85, 247, 0.10);
-  --tag-border:  rgba(168, 85, 247, 0.35);
-  --tag-text:    #6b21a8;
+  --chip-bg: rgba(255, 255, 255, 0.55);
+  --chip-border: rgba(0, 0, 0, 0.1);
+  --tag-bg: rgba(168, 85, 247, 0.1);
+  --tag-border: rgba(168, 85, 247, 0.35);
+  --tag-text: #6b21a8;
 
   /* ============ Hero 区玻璃卡（亮主题：黑色卡调色板） ============ */
   /*
@@ -75,65 +85,70 @@
    * 改成深色卡，与樱粉页面形成强对比，让 hero 区成为视觉焦点。
    * 暗色模式（<html class="dark">）走 var(--glass-*) 透明玻璃，不被这里的黑卡覆写影响。
    */
-  --hero-card-bg:          rgba(0, 0, 0, 0.88);
-  --hero-card-bg-hover:    rgba(0, 0, 0, 0.94);
-  --hero-card-border:      rgba(255, 255, 255, 0.18);
+  --hero-card-bg: rgba(0, 0, 0, 0.88);
+  --hero-card-bg-hover: rgba(0, 0, 0, 0.94);
+  --hero-card-border: rgba(255, 255, 255, 0.18);
   --hero-card-border-hover: rgba(255, 255, 255, 0.32);
-  --hero-card-text:        #ffffff;
-  --hero-card-text-soft:   rgba(255, 255, 255, 0.72);
-  --hero-card-shadow:      0 14px 48px rgba(0, 0, 0, 0.35);
+  --hero-card-text: #ffffff;
+  --hero-card-text-soft: rgba(255, 255, 255, 0.72);
+  --hero-card-shadow: 0 14px 48px rgba(0, 0, 0, 0.35);
   --hero-card-shadow-hover: 0 18px 56px rgba(0, 0, 0, 0.45);
 
   /* carousel 控件（亮主题：透明玻璃容器上，深色半透明控件才看得见） */
-  --hero-arrow-bg:         rgba(0, 0, 0, 0.45);
-  --hero-arrow-border:     rgba(0, 0, 0, 0.20);
-  --hero-indicator-bg:     rgba(0, 0, 0, 0.35);
+  --hero-arrow-bg: rgba(0, 0, 0, 0.45);
+  --hero-arrow-border: rgba(0, 0, 0, 0.2);
+  --hero-indicator-bg: rgba(0, 0, 0, 0.35);
   --hero-indicator-active: #1a1a1a;
 }
 
 /* ============ 夜间：纯黑主题（毛玻璃 + 黑白灰） ============ */
 html.dark {
   --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-bg-strong: rgba(255, 255, 255, 0.10);
+  --glass-bg-strong: rgba(255, 255, 255, 0.1);
   --glass-bg-soft: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-border-soft: rgba(255, 255, 255, 0.06);
   --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.25);
-  --glass-shadow-hover: 0 14px 48px rgba(192, 132, 252, 0.32), 0 2px 6px rgba(0, 0, 0, 0.25);
+  --glass-shadow-hover:
+    0 14px 48px rgba(192, 132, 252, 0.32), 0 2px 6px rgba(0, 0, 0, 0.25);
 
   --theme-name: dark;
-  --bg-page: #000000;                 /* 纯黑背景 */
+  --bg-page: #000000; /* 纯黑背景 */
   --bg-page-overlay: rgba(0, 0, 0, 0.85);
   --topbar-bg: rgba(0, 0, 0, 0.72);
   --topbar-border: rgba(255, 255, 255, 0.08);
   --topbar-text: #ffffff;
-  --accent: #c084fc;                  /* 暗色下强调：紫色品牌色（与 hover 一致） */
+  --accent: #c084fc; /* 暗色下强调：紫色品牌色（与 hover 一致） */
   --accent-soft: rgba(192, 132, 252, 0.18);
-  --featured-bg-from: rgba(255, 255, 255, 0.10);
+  --featured-bg-from: rgba(255, 255, 255, 0.1);
   --featured-bg-to: rgba(255, 255, 255, 0.04);
 
   /* hover 紫色（暗色下用稍微亮一点的紫，保持品牌色一致） */
-  --hover-border:    rgba(192, 132, 252, 0.60);
-  --hover-glow:      rgba(192, 132, 252, 0.35);
-  --hover-shadow:    0 12px 36px rgba(192, 132, 252, 0.25);
-  --accent-purple:   #c084fc;
+  --hover-border: rgba(192, 132, 252, 0.6);
+  --hover-glow: rgba(192, 132, 252, 0.35);
+  --hover-shadow: 0 12px 36px rgba(192, 132, 252, 0.25);
+  --accent-purple: #c084fc;
 
   /* ============ 文字色（暗主题：浅色文字） ============ */
-  --text-strong: #ffffff;            /* 标题/重点:纯白 */
-  --text-body:   rgba(255, 255, 255, 0.85);
-  --text-muted:  rgba(255, 255, 255, 0.55);
-  --text-soft:   rgba(255, 255, 255, 0.40);
+  --text-strong: #ffffff; /* 标题/重点:纯白 */
+  --text-body: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-soft: rgba(255, 255, 255, 0.4);
 
   /* ============ 装饰渐变（暗主题：浅色对浅色） ============ */
-  --text-name-gradient: linear-gradient(135deg, #ffffff, #d8b4fe);  /* 白 → 浅紫 */
+  --text-name-gradient: linear-gradient(
+    135deg,
+    #ffffff,
+    #d8b4fe
+  ); /* 白 → 浅紫 */
   --stat-number-gradient: linear-gradient(135deg, #a855f7, #ec4899);
 
   /* ============ 胶囊 / tag（暗主题：白玻璃 + 浅紫字） ============ */
-  --chip-bg:     rgba(255, 255, 255, 0.05);
-  --chip-border: rgba(255, 255, 255, 0.10);
-  --tag-bg:      rgba(168, 85, 247, 0.18);
-  --tag-border:  rgba(168, 85, 247, 0.4);
-  --tag-text:    #d8b4fe;
+  --chip-bg: rgba(255, 255, 255, 0.05);
+  --chip-border: rgba(255, 255, 255, 0.1);
+  --tag-bg: rgba(168, 85, 247, 0.18);
+  --tag-border: rgba(168, 85, 247, 0.4);
+  --tag-text: #d8b4fe;
 
   /* ============ Hero 区玻璃卡（暗主题：透明玻璃，与 --glass-* 一致） ============ */
   /*
@@ -141,19 +156,19 @@ html.dark {
    * 这里用透明值替代，方便后续 html:not(.dark) 的覆写做主题切换；
    * 真正的"暗色透明玻璃"仍由 .carousel-container / .featured-card 上层的 --glass-* 提供。
    */
-  --hero-card-bg:          transparent;
-  --hero-card-bg-hover:    transparent;
-  --hero-card-border:      transparent;
+  --hero-card-bg: transparent;
+  --hero-card-bg-hover: transparent;
+  --hero-card-border: transparent;
   --hero-card-border-hover: transparent;
-  --hero-card-text:        var(--text-strong);
-  --hero-card-text-soft:   var(--text-body);
-  --hero-card-shadow:      var(--glass-shadow);
+  --hero-card-text: var(--text-strong);
+  --hero-card-text-soft: var(--text-body);
+  --hero-card-shadow: var(--glass-shadow);
   --hero-card-shadow-hover: var(--glass-shadow-hover);
 
   /* 暗主题控件：白半透明（在深色玻璃上才看得见） */
-  --hero-arrow-bg:         rgba(255, 255, 255, 0.10);
-  --hero-arrow-border:     rgba(255, 255, 255, 0.22);
-  --hero-indicator-bg:     rgba(255, 255, 255, 0.40);
+  --hero-arrow-bg: rgba(255, 255, 255, 0.1);
+  --hero-arrow-border: rgba(255, 255, 255, 0.22);
+  --hero-indicator-bg: rgba(255, 255, 255, 0.4);
   --hero-indicator-active: #ffffff;
 }
 
@@ -180,7 +195,10 @@ body::before {
   border-bottom: 1px solid var(--topbar-border) !important;
   box-shadow: var(--glass-shadow) !important;
   color: var(--topbar-text) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, color 0.5s ease !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease !important;
 }
 
 /* ============ 搜索框：统一玻璃 ============ */
@@ -190,10 +208,11 @@ body::before {
   border-radius: var(--glass-radius-sm) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
 }
 
 .search-bar__input:focus {
@@ -213,18 +232,18 @@ body::before {
   border-radius: var(--glass-radius-lg) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .hero-right-top .featured-card:hover {
   background: var(--glass-bg-strong) !important;
   border-color: var(--hover-border) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow-hover) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover) !important;
   transform: translateY(-4px);
 }
 
@@ -234,9 +253,7 @@ body::before {
   border: 1px solid var(--glass-border) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
   background: var(--glass-bg) !important;
 }
 
@@ -247,10 +264,11 @@ body::before {
   border: 1px solid var(--glass-border) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease !important;
 }
 
 /*
@@ -274,18 +292,17 @@ body::before {
   border-radius: var(--glass-radius-lg) !important;
   backdrop-filter: var(--glass-blur-strong) !important;
   -webkit-backdrop-filter: var(--glass-blur-strong) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease !important;
 }
 
 .profile-card:hover {
   background: var(--glass-bg-strong) !important;
   border-color: var(--hover-border) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow-hover) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover) !important;
 }
 
 /* ============ 数据条 ============ */
@@ -295,18 +312,17 @@ body::before {
   border-radius: var(--glass-radius) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease !important;
 }
 
 .stat-item:hover {
   background: var(--glass-bg-strong) !important;
   border-color: var(--hover-border) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow-hover) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover) !important;
 }
 
 /* ============ 区块标题下边线 ============ */
@@ -321,18 +337,17 @@ body::before {
   border-radius: var(--glass-radius) !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease !important;
 }
 
 .post-card:hover {
   background: var(--glass-bg-strong) !important;
   border-color: var(--hover-border) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow-hover) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover) !important;
 }
 
 /* ============ 文章卡：保持透明毛玻璃，仅文字随主题变色 ============ */
@@ -360,7 +375,9 @@ body::before {
   border-radius: var(--glass-radius-sm) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  transition: background 0.5s ease, border-color 0.5s ease !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease !important;
 }
 
 .article-card:hover {
@@ -377,7 +394,9 @@ body::before {
   border-radius: 999px !important;
   backdrop-filter: var(--glass-blur) !important;
   -webkit-backdrop-filter: var(--glass-blur) !important;
-  transition: background 0.5s ease, border-color 0.5s ease !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease !important;
 }
 
 .contact-btn:hover {
@@ -407,9 +426,7 @@ body::before {
   border: 1px solid var(--glass-border);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow);
+  box-shadow: var(--glass-highlight), var(--glass-shadow);
   transition:
     background 0.5s ease,
     border-color 0.5s ease,
@@ -420,9 +437,7 @@ body::before {
 .theme-toggle-wrap:hover {
   background: var(--glass-bg-strong);
   border-color: var(--hover-border);
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow-hover);
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
   transform: translateY(-2px);
 }
 
@@ -452,18 +467,17 @@ body::before {
   border-radius: var(--glass-radius-lg) !important;
   backdrop-filter: var(--glass-blur-strong) !important;
   -webkit-backdrop-filter: var(--glass-blur-strong) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow) !important;
-  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow) !important;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease !important;
 }
 
 .contact-card:hover {
   background: var(--glass-bg-strong) !important;
   border-color: var(--hover-border) !important;
-  box-shadow:
-    var(--glass-highlight),
-    var(--glass-shadow-hover) !important;
+  box-shadow: var(--glass-highlight), var(--glass-shadow-hover) !important;
 }
 
 /* ============ 全局滚动条（XHBlogs 同款） ============ */

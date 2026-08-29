@@ -2,7 +2,7 @@
  * 樱花飘落动画
  */
 (function () {
-  'use strict';
+  "use strict";
 
   var MAX_PETALS = 25;
   var container = null;
@@ -13,8 +13,8 @@
   }
 
   function createPetal() {
-    var petal = document.createElement('div');
-    petal.className = 'sakura-petal';
+    var petal = document.createElement("div");
+    petal.className = "sakura-petal";
 
     var size = random(10, 20);
     var startX = random(0, window.innerWidth);
@@ -23,17 +23,27 @@
     var opacity = random(0.4, 0.75);
 
     petal.innerHTML =
-      '<svg width="' + size + '" height="' + size + '" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">' +
-      '<ellipse cx="10" cy="10" rx="4" ry="8" fill="rgba(255,200,210,1)" opacity="' + opacity + '"/>' +
-      '<ellipse cx="10" cy="10" rx="8" ry="4" fill="rgba(255,200,210,1)" opacity="' + opacity + '"/>' +
-      '<ellipse cx="10" cy="10" rx="4" ry="8" fill="rgba(255,220,230,1)" opacity="' + (opacity * 0.5) + '"/>' +
+      '<svg width="' +
+      size +
+      '" height="' +
+      size +
+      '" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">' +
+      '<ellipse cx="10" cy="10" rx="4" ry="8" fill="rgba(255,200,210,1)" opacity="' +
+      opacity +
+      '"/>' +
+      '<ellipse cx="10" cy="10" rx="8" ry="4" fill="rgba(255,200,210,1)" opacity="' +
+      opacity +
+      '"/>' +
+      '<ellipse cx="10" cy="10" rx="4" ry="8" fill="rgba(255,220,230,1)" opacity="' +
+      opacity * 0.5 +
+      '"/>' +
       '<circle cx="10" cy="10" r="1.5" fill="rgba(255,180,190,1)"/>' +
-      '</svg>';
+      "</svg>";
 
-    petal.style.left = startX + 'px';
-    petal.style.width = size + 'px';
-    petal.style.height = size + 'px';
-    petal.style.animationName = 'sakura-fall-' + Math.floor(swayRange);
+    petal.style.left = startX + "px";
+    petal.style.width = size + "px";
+    petal.style.height = size + "px";
+    petal.style.animationName = "sakura-fall-" + Math.floor(swayRange);
 
     petal.fallDuration = duration;
     petal.swayRange = swayRange;
@@ -43,34 +53,40 @@
     petal.opacity = opacity;
 
     petal.style.opacity = 0;
-    petal.style.transition = 'opacity 1s ease';
+    petal.style.transition = "opacity 1s ease";
 
     setTimeout(function () {
       petal.style.opacity = 1;
-      petal.style.transition = 'none';
+      petal.style.transition = "none";
     }, 100);
 
     return petal;
   }
 
   function addSwayKeyframes() {
-    var styleId = 'sakura-keyframes';
+    var styleId = "sakura-keyframes";
     if (document.getElementById(styleId)) return;
 
-    var style = document.createElement('style');
+    var style = document.createElement("style");
     style.id = styleId;
     var ranges = [20, 30, 40, 50, 60];
-    var swayCss = '';
+    var swayCss = "";
 
     ranges.forEach(function (r) {
       swayCss +=
-        '@keyframes sakura-fall-' + r + ' {' +
-        '0% { transform: translateX(0) rotate(0deg); }' +
-        '25% { transform: translateX(' + r + 'px) rotate(15deg); }' +
-        '50% { transform: translateX(0) rotate(0deg); }' +
-        '75% { transform: translateX(-' + r + 'px) rotate(-15deg); }' +
-        '100% { transform: translateX(0) rotate(0deg); }' +
-        '}';
+        "@keyframes sakura-fall-" +
+        r +
+        " {" +
+        "0% { transform: translateX(0) rotate(0deg); }" +
+        "25% { transform: translateX(" +
+        r +
+        "px) rotate(15deg); }" +
+        "50% { transform: translateX(0) rotate(0deg); }" +
+        "75% { transform: translateX(-" +
+        r +
+        "px) rotate(-15deg); }" +
+        "100% { transform: translateX(0) rotate(0deg); }" +
+        "}";
     });
 
     style.textContent = swayCss;
@@ -80,8 +96,8 @@
   function initSakura() {
     if (container) return;
 
-    container = document.createElement('div');
-    container.className = 'sakura-container';
+    container = document.createElement("div");
+    container.className = "sakura-container";
     document.body.appendChild(container);
 
     addSwayKeyframes();
@@ -130,9 +146,9 @@
       var fallY = -60 + (window.innerHeight + 120) * progress;
       var currentRotation = rotation + rotationSpeed * progress * fallDuration;
 
-      petal.style.left = swayX + 'px';
-      petal.style.top = fallY + 'px';
-      petal.style.transform = 'rotate(' + currentRotation + 'deg)';
+      petal.style.left = swayX + "px";
+      petal.style.top = fallY + "px";
+      petal.style.transform = "rotate(" + currentRotation + "deg)";
 
       requestAnimationFrame(animate);
     }
@@ -141,10 +157,9 @@
     requestAnimationFrame(animate);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSakura);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initSakura);
   } else {
     initSakura();
   }
-
 })();

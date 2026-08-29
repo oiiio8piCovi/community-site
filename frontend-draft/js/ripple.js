@@ -30,7 +30,8 @@
           ring.style.left = x + "px";
           ring.style.top = y + "px";
           ring.style.borderColor = color.border;
-          ring.style.boxShadow = "0 0 20px " + color.glow + ", inset 0 0 15px " + color.glow;
+          ring.style.boxShadow =
+            "0 0 20px " + color.glow + ", inset 0 0 15px " + color.glow;
 
           document.body.appendChild(ring);
 
@@ -46,11 +47,15 @@
 
   var isTouch = false;
 
-  document.addEventListener("touchstart", function (e) {
-    isTouch = true;
-    var touch = e.touches[0];
-    createRippleRings(touch.clientX, touch.clientY);
-  }, { passive: true });
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      isTouch = true;
+      var touch = e.touches[0];
+      createRippleRings(touch.clientX, touch.clientY);
+    },
+    { passive: true },
+  );
 
   document.addEventListener("click", function (e) {
     if (isTouch) {
