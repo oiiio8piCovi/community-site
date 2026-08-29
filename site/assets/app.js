@@ -108,6 +108,10 @@
       const contentDiv = document.createElement("div");
       contentDiv.className = "msg-text";
       contentDiv.textContent = item.content;
+
+      div.appendChild(titleDiv);
+      div.appendChild(contentDiv);
+      box.appendChild(div);
     });
   });
 
