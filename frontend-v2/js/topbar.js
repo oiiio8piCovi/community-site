@@ -1,7 +1,7 @@
 (function () {
-  'use strict';
+  "use strict";
 
-  var topbar = document.getElementById('topbar');
+  var topbar = document.getElementById("topbar");
   if (!topbar) return;
 
   var lastScrollY = 0;
@@ -11,11 +11,11 @@
     var currentScrollY = window.scrollY;
 
     if (currentScrollY <= 0) {
-      topbar.classList.remove('topbar--hidden');
+      topbar.classList.remove("topbar--hidden");
     } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      topbar.classList.add('topbar--hidden');
+      topbar.classList.add("topbar--hidden");
     } else if (currentScrollY < lastScrollY) {
-      topbar.classList.remove('topbar--hidden');
+      topbar.classList.remove("topbar--hidden");
     }
 
     lastScrollY = currentScrollY;
@@ -29,5 +29,5 @@
     }
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener("scroll", onScroll, { passive: true });
 })();

@@ -31,7 +31,7 @@
       opacity +
       '"/>' +
       '<ellipse cx="10" cy="10" rx="4" ry="8" fill="rgba(255,220,230,1)" opacity="' +
-      (opacity * 0.5) +
+      opacity * 0.5 +
       '"/>' +
       '<circle cx="10" cy="10" r="1.5" fill="rgba(255,180,190,1)"/>' +
       "</svg>";

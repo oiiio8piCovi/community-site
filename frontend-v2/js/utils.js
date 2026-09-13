@@ -2,7 +2,7 @@
  * 通用工具函数
  */
 (function (global) {
-  'use strict';
+  "use strict";
 
   var Utils = {
     /**
@@ -56,7 +56,7 @@
           localStorage.setItem(key, JSON.stringify(value));
           return true;
         } catch (e) {
-          console.warn('localStorage not available:', e);
+          console.warn("localStorage not available:", e);
           return false;
         }
       },
@@ -75,7 +75,7 @@
         } catch (e) {
           return false;
         }
-      }
+      },
     },
 
     /**
@@ -84,28 +84,34 @@
      * @param {string} format - 格式化模板
      */
     formatDate: function (date, format) {
-      var d = typeof date === 'string' ? new Date(date) : date;
-      if (isNaN(d.getTime())) return '';
+      var d = typeof date === "string" ? new Date(date) : date;
+      if (isNaN(d.getTime())) return "";
 
       var pad = function (n) {
-        return n < 10 ? '0' + n : n;
+        return n < 10 ? "0" + n : n;
       };
 
       return format.replace(/YYYY|MM|DD|HH|mm|ss/g, function (key) {
         switch (key) {
-          case 'YYYY': return d.getFullYear();
-          case 'MM': return pad(d.getMonth() + 1);
-          case 'DD': return pad(d.getDate());
-          case 'HH': return pad(d.getHours());
-          case 'mm': return pad(d.getMinutes());
-          case 'ss': return pad(d.getSeconds());
-          default: return key;
+          case "YYYY":
+            return d.getFullYear();
+          case "MM":
+            return pad(d.getMonth() + 1);
+          case "DD":
+            return pad(d.getDate());
+          case "HH":
+            return pad(d.getHours());
+          case "mm":
+            return pad(d.getMinutes());
+          case "ss":
+            return pad(d.getSeconds());
+          default:
+            return key;
         }
       });
-    }
+    },
   };
 
   // 导出到全局
   global.Utils = Utils;
-
 })(window);

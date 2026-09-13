@@ -1,62 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AC社区 · Animation & Computer Science Community</title>
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC社区 · Animation & Computer Science Community</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <!-- 顶部品牌区 -->
+    <header class="hero">
+      <div class="hero-inner">
+        <h1 class="site-name">AC社区</h1>
+        <p class="site-sub">ACコミュニティ</p>
+        <p class="site-full">Animation &amp; Computer Science Community</p>
+        <p class="site-slogan">共建 · 共享 · 成长</p>
+      </div>
+    </header>
 
-<!-- 顶部品牌区 -->
-<header class="hero">
-  <div class="hero-inner">
-    <h1 class="site-name">AC社区</h1>
-    <p class="site-sub">ACコミュニティ</p>
-    <p class="site-full">Animation &amp; Computer Science Community</p>
-    <p class="site-slogan">共建 · 共享 · 成长</p>
-  </div>
-</header>
+    <main class="container">
+      <!-- 状态条：健康检查 + 访问统计 -->
+      <section class="card status-card">
+        <h2 class="card-title">
+          服务器状态 <span class="api-tag">GET /api/health</span>
+        </h2>
+        <p class="status-line" id="health-line">正在探测…</p>
+        <h2 class="card-title">
+          访问统计 <span class="api-tag">GET /api/visit/count</span>
+        </h2>
+        <p class="status-line">
+          总访问 <strong id="total-visit">0</strong> 次 ｜ 今日
+          <strong id="today-visit">0</strong> 次
+          <button id="refresh-count" class="btn-mini">刷新（+1）</button>
+        </p>
+      </section>
 
-<main class="container">
+      <!-- 留言板 -->
+      <section class="card">
+        <h2 class="card-title">
+          留言板
+          <span class="api-tag"
+            >GET /api/message/list · POST /api/message/add</span
+          >
+        </h2>
+        <form id="msg-form" class="msg-form">
+          <input
+            id="msg-nickname"
+            placeholder="昵称（1-20字）"
+            maxlength="20"
+            required
+          />
+          <input
+            id="msg-content"
+            placeholder="说点什么（1-500字）"
+            maxlength="500"
+            required
+          />
+          <button type="submit" class="btn">提交</button>
+        </form>
+        <ul id="msg-list" class="msg-list"></ul>
+      </section>
 
-  <!-- 状态条：健康检查 + 访问统计 -->
-  <section class="card status-card">
-    <h2 class="card-title">服务器状态 <span class="api-tag">GET /api/health</span></h2>
-    <p class="status-line" id="health-line">正在探测…</p>
-    <h2 class="card-title">访问统计 <span class="api-tag">GET /api/visit/count</span></h2>
-    <p class="status-line">总访问 <strong id="total-visit">0</strong> 次 ｜ 今日 <strong id="today-visit">0</strong> 次
-      <button id="refresh-count" class="btn-mini">刷新（+1）</button>
-    </p>
-  </section>
+      <!-- 搜索 -->
+      <section class="card">
+        <h2 class="card-title">
+          站内搜索 <span class="api-tag">GET /api/search/query?keyword=</span>
+        </h2>
+        <form id="search-form" class="msg-form">
+          <input
+            id="search-keyword"
+            placeholder="搜文章标题/内容，比如「社区」"
+            required
+          />
+          <button type="submit" class="btn">搜索</button>
+        </form>
+        <div id="search-result" class="search-result"></div>
+      </section>
+    </main>
 
-  <!-- 留言板 -->
-  <section class="card">
-    <h2 class="card-title">留言板 <span class="api-tag">GET /api/message/list · POST /api/message/add</span></h2>
-    <form id="msg-form" class="msg-form">
-      <input id="msg-nickname" placeholder="昵称（1-20字）" maxlength="20" required>
-      <input id="msg-content" placeholder="说点什么（1-500字）" maxlength="500" required>
-      <button type="submit" class="btn">提交</button>
-    </form>
-    <ul id="msg-list" class="msg-list"></ul>
-  </section>
+    <footer class="footer">
+      <p>
+        AC社区 · 演示站（草案后端实况）｜ 源码
+        <a href="https://github.com/oiiio8piCovi/community-site" target="_blank"
+          >GitHub</a
+        >
+      </p>
+    </footer>
 
-  <!-- 搜索 -->
-  <section class="card">
-    <h2 class="card-title">站内搜索 <span class="api-tag">GET /api/search/query?keyword=</span></h2>
-    <form id="search-form" class="msg-form">
-      <input id="search-keyword" placeholder="搜文章标题/内容，比如「社区」" required>
-      <button type="submit" class="btn">搜索</button>
-    </form>
-    <div id="search-result" class="search-result"></div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <p>AC社区 · 演示站（草案后端实况）｜ 源码 <a href="https://github.com/oiiio8piCovi/community-site" target="_blank">GitHub</a></p>
-</footer>
-
-<script src="assets/app.js"></script>
-</body>
+    <script src="assets/app.js"></script>
+  </body>
 </html>

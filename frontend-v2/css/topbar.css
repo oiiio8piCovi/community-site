@@ -40,7 +40,9 @@
   letter-spacing: -0.02em;
   padding: 4px 8px;
   border-radius: 8px;
-  transition: color 0.25s ease, background 0.25s ease;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
 }
 
 .topbar__logo:hover {
@@ -62,7 +64,9 @@
   font-size: 0.9rem;
   color: var(--topbar-text);
   text-decoration: none;
-  transition: color 0.25s ease, background 0.25s ease;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
 }
 
 .topbar__link::after {
@@ -101,7 +105,10 @@
   border-radius: 8px;
   color: var(--topbar-text);
   text-decoration: none;
-  transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .topbar__github:hover {
